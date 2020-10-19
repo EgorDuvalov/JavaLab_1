@@ -1,0 +1,353 @@
+Index: Java labs.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Java labs.iml	(date 1601651005525)
++++ Java labs.iml	(date 1601651005525)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1601652359300)
++++ .idea/misc.xml	(date 1601652359300)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectKey">
++    <option name="state" value="project://e2804f05-5315-4fc6-a121-c522a6c26470" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="true" project-jdk-name="14" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/description.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/description.html	(date 1601651005267)
++++ .idea/description.html	(date 1601651005267)
+@@ -0,0 +1,1 @@
++<html>Simple <b>Java</b> application that includes a class with <code>main()</code> method</html>
+\ No newline at end of file
+Index: .idea/project-template.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/project-template.xml	(date 1601651005370)
++++ .idea/project-template.xml	(date 1601651005370)
+@@ -0,0 +1,3 @@
++<template>
++  <input-field default="com.company">IJ_BASE_PACKAGE</input-field>
++</template>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1602931889546)
++++ .idea/vcs.xml	(date 1602931889546)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1601652359416)
++++ .idea/modules.xml	(date 1601652359416)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Java labs.iml" filepath="$PROJECT_DIR$/Java labs.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/com/company/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Main.java	(date 1602939113634)
++++ src/com/company/Main.java	(date 1602939113634)
+@@ -0,0 +1,28 @@
++package com.company;
++
++public class Main {
++
++    @SuppressWarnings("unchecked")
++    public static void main(String[] args) throws Exception {
++        Food[] breakfast = new Food[20];
++        int item_in_list = 0;
++        for (String arg : args) {
++            String[] parts_of_string = arg.split("/");
++            if (parts_of_string[0].equals("Cheese")) {
++                breakfast[item_in_list] = new Cheese();
++            } else if (parts_of_string[item_in_list].equals("Apple")) {
++                breakfast[item_in_list] = new Apple(parts_of_string[item_in_list + 1]);
++            } else {
++                breakfast[item_in_list] = new Cake(parts_of_string[item_in_list + 1]);
++            }
++            item_in_list++;
++        }
++        for (Food meal : breakfast) {
++            if (meal != null) meal.consume();
++            else break;
++        }
++        System.out.println("Have a nice day baby");
++    }
++}
++
++
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(date 1601652359374)
++++ .idea/encodings.xml	(date 1601652359374)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="PROJECT" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1601651072517)
++++ .idea/.gitignore	(date 1601651072517)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: src/com/company/Consumable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Consumable.java	(date 1602937504962)
++++ src/com/company/Consumable.java	(date 1602937504962)
+@@ -0,0 +1,5 @@
++package com.company;
++
++public interface Consumable {
++   void consume();
++}
+Index: src/com/company/Food.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Food.java	(date 1602661868848)
++++ src/com/company/Food.java	(date 1602661868848)
+@@ -0,0 +1,33 @@
++package com.company;
++
++import com.company.Consumable;
++import java.util.Objects;
++
++public abstract class Food implements Consumable {
++
++    String name = null;
++
++    public Food(String name){
++        this.name=name;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (!(o instanceof Food)) return false;
++        if (name == null || ((Food) o).name == null) return false;
++        return name.equals(((Food) o).name);
++    }
++
++    @Override
++    public String toString() {
++        return name;
++    }
++}
+\ No newline at end of file
+Index: src/com/company/Cake.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Cake.java	(date 1602938657723)
++++ src/com/company/Cake.java	(date 1602938657723)
+@@ -0,0 +1,44 @@
++package com.company;
++
++import java.util.Objects;
++
++public class Cake extends Food implements Consumable, Nutritious {
++    private String icing;
++
++    public Cake(String icing) {
++        super("Cake");
++        this.icing = icing;
++    }
++
++    public String getIcing() {
++        return icing;
++    }
++
++    public void setIcing(String icing) {
++        this.icing = icing;
++    }
++
++    public void consume() {
++        System.out.println(this + " is consumed");
++    }
++
++    public int calculate_Calories(){
++        if (icing=="Chocolate") return 450;
++        else if (icing=="Cream") return 400;
++        else return 350;
++    }
++
++    @Override
++    public boolean equals(Object obj) {
++        if (this == obj) return true;
++        if (obj == null || getClass() != obj.getClass()) return false;
++        if (!super.equals(obj)) return false;
++        Cake cake = (Cake) obj;
++        return Objects.equals(icing, cake.icing);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(icing);
++    }
++}
+Index: src/com/company/Cheese.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Cheese.java	(date 1602937505002)
++++ src/com/company/Cheese.java	(date 1602937505002)
+@@ -0,0 +1,11 @@
++package com.company;
++
++public class Cheese extends Food {
++    public Cheese() {
++        super("Cheese");
++    }
++
++    public void consume() {
++        System.out.println(this + " is consumed");
++    }
++}
+\ No newline at end of file
+Index: src/com/company/Nutritious.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Nutritious.java	(date 1602938518803)
++++ src/com/company/Nutritious.java	(date 1602938518803)
+@@ -0,0 +1,5 @@
++package com.company;
++
++public interface Nutritious {
++    int calculate_Calories();
++    }
+Index: src/com/company/Apple.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Apple.java	(date 1602937505154)
++++ src/com/company/Apple.java	(date 1602937505154)
+@@ -0,0 +1,50 @@
++package com.company;
++
++import java.util.Objects;
++
++public class Apple extends Food {
++    private String size;
++
++    public Apple(String size) {
++// Вызвать конструктор предка, передав ему имя класса
++        super("Яблоко");
++// Инициализировать размер яблока
++        this.size = size;
++    }
++
++    // Переопределить способ употребления яблока
++    public void consume() {
++        System.out.println(this + " съедено");
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        if (!super.equals(o)) return false;
++        Apple apple = (Apple) o;
++        return size.equals(apple.size);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(size);
++    }
++
++    @Override
++    public String toString() {
++        return "Apple{" +
++                "size='" + size + '\'' +
++                '}';
++    }
++
++    // Селектор для доступа к полю данных РАЗМЕР
++    public String getSize() {
++        return size;
++    }
++
++    // Модификатор для изменения поля данных РАЗМЕР
++    public void setSize(String size) {
++        this.size = size;
++    }
++}
+\ No newline at end of file
