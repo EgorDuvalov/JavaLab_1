@@ -2,19 +2,25 @@ package com.company;
 
 import java.util.Objects;
 
-public class Apple extends Food {
+public class Apple extends Food implements Consumable, Nutritious {
     private String size;
 
     public Apple(String size) {
-// Вызвать конструктор предка, передав ему имя класса
         super("Яблоко");
-// Инициализировать размер яблока
         this.size = size;
     }
 
     // Переопределить способ употребления яблока
     public void consume() {
-        System.out.println(this + " съедено");
+        System.out.println(this.name + " of " + this.size + " size is consumed");
+    }
+
+    public int calculate_Calories() {
+        if (size.equals("Big")) return 250;
+        if (size.equals("Medium")) return 200;
+        if (size.equals("Small")) return 150;
+        System.out.println("Apple size is inappropriate");
+        return 0;
     }
 
     @Override
