@@ -19,13 +19,15 @@ public class Cake extends Food implements Consumable, Nutritious {
     }
 
     public void consume() {
-        System.out.println(this + " is consumed");
+        System.out.println(icing+ this +" is consumed");
     }
 
     public int calculate_Calories(){
-        if (icing=="Chocolate") return 450;
-        else if (icing=="Cream") return 400;
-        else return 350;
+        if (icing.equals("Chocolate")) return 550;
+        else if (icing.equals("Cream")) return 450;
+        else if (icing.equals("Caramel")) return 350;
+        System.out.println("Icing is inappropriate");
+        return 0;
     }
 
     @Override

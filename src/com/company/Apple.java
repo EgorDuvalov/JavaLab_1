@@ -6,13 +6,13 @@ public class Apple extends Food implements Consumable, Nutritious {
     private String size;
 
     public Apple(String size) {
-        super("Яблоко");
+        super("Apple");
         this.size = size;
     }
 
     // Переопределить способ употребления яблока
     public void consume() {
-        System.out.println(this.name + " of " + this.size + " size is consumed");
+        System.out.println(this.size + this.name +  " is consumed");
     }
 
     public int calculate_Calories() {

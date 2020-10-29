@@ -1,28 +1,39 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
-        Food[] breakfast = new Food[20];
-        int item_in_list = 0;
-        for (String arg : args) {
-            String[] parts_of_string = arg.split("/");
-            if (parts_of_string[0].equals("Cheese")) {
-                breakfast[item_in_list] = new Cheese();
-            } else if (parts_of_string[item_in_list].equals("Apple")) {
-                breakfast[item_in_list] = new Apple(parts_of_string[item_in_list + 1]);
-            } else {
-                breakfast[item_in_list] = new Cake(parts_of_string[item_in_list + 1]);
-            }
-            item_in_list++;
+        //initialize Cake n Apple
+        Cake cake;
+        Apple apple;
+        String[] Icing = new String[3];
+        Icing[0] = "Chocolate";
+        Icing[1] = "Cream";
+        Icing[2] = "Caramel";
+        cake = new Cake(Icing[(int) (Math.random() * 3)]);
+        String[] Size = new String[]{"Big", "Medium", "Small"};
+        apple = new Apple(Size[(int) (Math.random() * 3)]);
+        Cheese cheese = new Cheese();
+
+        System.out.println("Ur breakfast contains " + cake + ", " + apple + " and " + cheese);
+
+        System.out.println("Wanna know amount of calories?");
+        Scanner input = new Scanner(System.in);
+        String choice = input.nextLine();
+        if (choice.equals("-calculate")) {
+            int calories = cake.calculate_Calories() + apple.calculate_Calories();
+            System.out.println(calories + " calories");
         }
-        for (Food meal : breakfast) {
-            if (meal != null) meal.consume();
-            else break;
-        }
+
+        cake.consume();
+        apple.consume();
+        cheese.consume();
         System.out.println("Have a nice day baby");
     }
+
 }
 
 
